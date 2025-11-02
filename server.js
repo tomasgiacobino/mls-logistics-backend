@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 // Configuración de Mercado Pago
 const client = new MercadoPagoConfig({ 
     accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN,
-    sandbox: false
+    sandbox: true
 });
 const preference = new Preference(client);
 const paymentApi = new Payment(client);
