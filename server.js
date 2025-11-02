@@ -52,26 +52,6 @@ app.post('/create-order', async (req, res) => {
     }
 });
 
-// Ruta para éxito
-app.get('/success', (req, res) => {
-    console.log('✅ Pago exitoso:', req.query);
-    // Redirigir al frontend local (localhost:5173)
-    res.redirect(`http://localhost:5173/success?${new URLSearchParams(req.query).toString()}`);
-});
-
-app.get('/failure', (req, res) => {
-    console.log('❌ Pago fallido:', req.query);
-    res.redirect(`http://localhost:5173/failure?${new URLSearchParams(req.query).toString()}`);
-});
-
-// Ruta para pendiente
-app.get('/pending', (req, res) => {
-    console.log('⏳ Pago pendiente:', req.query);
-    res.redirect(`http://localhost:5173/pending?${new URLSearchParams(req.query).toString()}`);
-});
-
-
-
 app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
   // 1) Confirmar recepción inmediatamente (obligatorio por MP)
   res.status(200).json({ received: true });
