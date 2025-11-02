@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 // Configuración de Mercado Pago
 const client = new MercadoPagoConfig({ 
     accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN,
-    sandbox: true
+    sandbox: false
 });
 const preference = new Preference(client);
 const paymentApi = new Payment(client);
@@ -36,12 +36,12 @@ app.post('/create-order', async (req, res) => {
                     }
                 ],
                 back_urls: {
-                    success: "https://770a2aca0f38.ngrok-free.app/success",
-                    failure: "https://770a2aca0f38.ngrok-free.app/failure",
-                    pending: "https://770a2aca0f38.ngrok-free.app/pending",
+                    success: "https://mls-logistics-frontend-j3x1.vercel.app/success",
+                    failure: "https://mls-logistics-frontend-j3x1.vercel.app/failure",
+                    pending: "https://mls-logistics-frontend-j3x1.vercel.app/pending",
                 },
                 auto_return: "approved",
-                notification_url: "https://770a2aca0f38.ngrok-free.app/webhook"
+                notification_url: "https://mls-logistics-backend.onrender.com"
             }
         });
         console.log('Respuesta de la API de mercado pago:', result)
