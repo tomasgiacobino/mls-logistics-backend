@@ -41,7 +41,7 @@ app.post('/create-order', async (req, res) => {
                     pending: "https://mls-logistics-frontend-j3x1.vercel.app/pending",
                 },
                 auto_return: "approved",
-                notification_url: "https://mls-logistics-backend.onrender.com"
+                notification_url: "https://mls-logistics-backend.onrender.com/webhook"
             }
         });
         console.log('Respuesta de la API de mercado pago:', result)
