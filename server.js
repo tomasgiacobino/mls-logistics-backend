@@ -52,6 +52,15 @@ app.post('/create-order', async (req, res) => {
     }
 });
 
+// Endpoint de salud para keep-alive y monitoreo
+app.get('/health', (req, res) => {
+    res.status(200).json({ 
+        status: 'OK', 
+        message: 'Backend is alive!',
+        timestamp: new Date().toISOString()
+    });
+});
+
 app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
   // 1) Confirmar recepción inmediatamente (obligatorio por MP)
   res.status(200).json({ received: true });
